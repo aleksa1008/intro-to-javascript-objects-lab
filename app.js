@@ -127,6 +127,7 @@ Exercise 9
 
 Solve Exercise 9 here:
 */
+
 for(i = 0; i < starterPokemon.length; i++ ){
   console.log(starterPokemon[i].name)
 }
@@ -162,10 +163,12 @@ Solve Exercise 11 here:
 */
 
 
-
-
-
-
+game.catchPokemon = (pokemonObj)=>{
+    game.party.push(pokemonObj);
+    game.items -- ;
+}
+game.catchPokemon('Kadabra');
+console.log(game.party);
 
 
 /*
@@ -209,9 +212,6 @@ Solve Exercise 13 here:
 
 
 
-
-
-
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -224,14 +224,10 @@ This method should:
 Solve Exercise 14 here:
 */
 
-
-
-
-
-
-
-
-
+game.partyCount = () => {
+  return game.party.length
+};
+console.log(game.partyCount());
 
 /*
 Exercise 15
@@ -241,10 +237,12 @@ Exercise 15
 Solve Exercise 15 here:
 */
 
-
-
-
-
+game.gyms.forEach(gym => {
+  if (gym.difficulty < 8 ) {
+    gym.completed = true;
+  }
+});
+console.log (game.gyms)
 
 
 
