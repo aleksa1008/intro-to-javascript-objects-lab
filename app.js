@@ -31,7 +31,7 @@ Exercise 3
 Solve Exercise 3 here:
 */
 
-// console.log(game.difficulty);
+ console.log(game.difficulty);
 /*
 Exercise 4
 1. Select a starter Pokémon from the `pokemon` array. Remember, a starter Pokémon's `starter` property is true.
@@ -45,7 +45,7 @@ let starterPokemon = pokemon.filter((pokemon) => pokemon.starter === true);
 if (starterPokemon) {
   game.party.push(starterPokemon);
 }
-// console.log(game.party);
+ console.log(game.party);
 /*
 Exercise 5
 1. Choose three more Pokémon from the `pokemon` array and add them to your party.
@@ -59,7 +59,7 @@ const selectedPokemon = pokemon.slice(110, 113);
 if (selectedPokemon) {
   game.party.push(selectedPokemon);
 }
-// console.log(game.party);
+ console.log(game.party);
 
 /*
 Exercise 6
@@ -75,7 +75,7 @@ game.gyms.forEach((gym) => {
     gym.completed = true;
   }
 });
-// console.log(game.gyms);
+ console.log(game.gyms);
 /*
 Exercise 7
 1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
@@ -97,7 +97,7 @@ game.party.splice(0, 1, pokemon[1]);
 game.party.splice(1, 1, pokemon[4]);
 game.party.splice(6, 1, pokemon[7]);
 game.party.splice(24, 1, pokemon[25]);
-// console.log(game.party);
+ console.log(game.party);
 
 /*
 Exercise 8
@@ -136,7 +136,7 @@ game.catchPokemon = (pokemonObj) => {
 };
 const beedrill = pokemon[14];
 game.catchPokemon(beedrill);
-// console.log(game.party);
+console.log(game.party);
 
 /*
 Exercise 11
@@ -175,7 +175,7 @@ game.gyms.forEach((gym) => {
     gym.completed = true;
   }
 });
-// console.log(game.gyms);
+ console.log(game.gyms);
 
 /*
 Exercise 13
@@ -230,7 +230,7 @@ Solve Exercise 14 here:
 game.partyCount = () => {
   return game.party.length;
 };
-// console.log(game.partyCount());
+ console.log(game.partyCount());
 
 /*
 Exercise 15
@@ -245,7 +245,7 @@ game.gyms.forEach((gym) => {
     gym.completed = true;
   }
 });
-// console.log(game.gyms);
+ console.log(game.gyms);
 
 /*
 Exercise 16
