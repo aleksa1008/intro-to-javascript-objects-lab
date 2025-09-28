@@ -1,7 +1,7 @@
-const pokemon = require('./data.js');
+const pokemon = require("./data.js");
 
 const game = {
-    difficulty: [ 'Med' ],
+  difficulty: ["Med"],
   party: [],
   gyms: [
     { location: "Pewter City", completed: false, difficulty: 1 },
@@ -18,7 +18,7 @@ const game = {
     { name: "pokeball", quantity: 8 },
     { name: "rare candy", quantity: 99 },
   ],
-}
+};
 
 //console.dir(pokemon, { maxArrayLength: null })
 
@@ -31,9 +31,7 @@ Exercise 3
 Solve Exercise 3 here:
 */
 
-
-
-console.log(game.difficulty)
+// console.log(game.difficulty);
 /*
 Exercise 4
 1. Select a starter Pokémon from the `pokemon` array. Remember, a starter Pokémon's `starter` property is true.
@@ -43,14 +41,11 @@ Exercise 4
 Solve Exercise 4 here:
 */
 
-
-
-let starterPokemon = pokemon.filter (pokemon => 
-    pokemon.starter === true);
+let starterPokemon = pokemon.filter((pokemon) => pokemon.starter === true);
 if (starterPokemon) {
-    game.party.push(starterPokemon)
+  game.party.push(starterPokemon);
 }
- console.log(game.party);
+// console.log(game.party);
 /*
 Exercise 5
 1. Choose three more Pokémon from the `pokemon` array and add them to your party.
@@ -60,14 +55,11 @@ Exercise 5
 Solve Exercise 5 here:
 */
 
-
-
-
-const selectedPokemon = pokemon.slice (110, 113);
-if (selectedPokemon){
-game.party.push(selectedPokemon)
+const selectedPokemon = pokemon.slice(110, 113);
+if (selectedPokemon) {
+  game.party.push(selectedPokemon);
 }
-console.log(game.party);
+// console.log(game.party);
 
 /*
 Exercise 6
@@ -78,13 +70,12 @@ Exercise 6
 Solve Exercise 6 here:
 */
 
-
-game.gyms.forEach(gym => {
+game.gyms.forEach((gym) => {
   if (gym.difficulty < 3) {
     gym.completed = true;
   }
 });
-console.log (game.gyms)
+// console.log(game.gyms);
 /*
 Exercise 7
 1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
@@ -102,12 +93,11 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 
-
-game.party.splice(0,1,pokemon[1]);
-game.party.splice(1,1,pokemon[4]);
-game.party.splice(6,1,pokemon[7]);
-game.party.splice(24,1,pokemon[25]);
-console.log(game.party);
+game.party.splice(0, 1, pokemon[1]);
+game.party.splice(1, 1, pokemon[4]);
+game.party.splice(6, 1, pokemon[7]);
+game.party.splice(24, 1, pokemon[25]);
+// console.log(game.party);
 
 /*
 Exercise 8
@@ -116,9 +106,7 @@ Exercise 8
 
 Solve Exercise 8 here:
 */
-game.party.forEach(pokemon =>
-  console.log(pokemon.name)
-)
+game.party.forEach((pokemon) => console.log(pokemon.name));
 /*
 Exercise 9
 1. Can you print out all the starter Pokémon from the `pokemon` array?
@@ -128,8 +116,8 @@ Exercise 9
 Solve Exercise 9 here:
 */
 
-for(i = 0; i < starterPokemon.length; i++ ){
-  console.log(starterPokemon[i].name)
+for (i = 0; i < starterPokemon.length; i++) {
+  console.log(starterPokemon[i].name);
 }
 
 /*
@@ -143,11 +131,12 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
-game.catchPokemon = (pokemonObj)=>{
-    game.party.push(pokemonObj);
-}
-game.catchPokemon('Kadabra');
-console.log(game.party);
+game.catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj);
+};
+const beedrill = pokemon[14];
+game.catchPokemon(beedrill);
+// console.log(game.party);
 
 /*
 Exercise 11
@@ -162,14 +151,16 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
-
-game.catchPokemon = (pokemonObj)=>{
-    game.party.push(pokemonObj);
-    game.items -- ;
-}
-game.catchPokemon('Kadabra');
-console.log(game.party);
-
+game.catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj);
+  game.items.forEach((item) => {
+    if (item.name === "pokeball") {
+      item.quantity -= 1;
+    }
+  });
+};
+game.catchPokemon(beedrill);
+console.log(game.items);
 
 /*
 Exercise 12
@@ -179,13 +170,12 @@ Exercise 12
 Solve Exercise 12 here:
 */
 
-game.gyms.forEach(gym => {
-  if (gym.difficulty < 6 ) {
+game.gyms.forEach((gym) => {
+  if (gym.difficulty < 6) {
     gym.completed = true;
   }
 });
-console.log (game.gyms)
-
+// console.log(game.gyms);
 
 /*
 Exercise 13
@@ -210,8 +200,21 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
-
-
+game.gymStatus = () => {
+  const gymTally = {
+    complete: 0,
+    incomplete: 0,
+  };
+  game.gyms.forEach((gym) => {
+    if (gym.completed === true) {
+      gymTally.complete += 1;
+    } else {
+      gymTally.incomplete += 1;
+    }
+  });
+  console.log(gymTally);
+};
+game.gymStatus();
 /*
 Exercise 14
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -225,9 +228,9 @@ Solve Exercise 14 here:
 */
 
 game.partyCount = () => {
-  return game.party.length
+  return game.party.length;
 };
-console.log(game.partyCount());
+// console.log(game.partyCount());
 
 /*
 Exercise 15
@@ -237,15 +240,12 @@ Exercise 15
 Solve Exercise 15 here:
 */
 
-game.gyms.forEach(gym => {
-  if (gym.difficulty < 8 ) {
+game.gyms.forEach((gym) => {
+  if (gym.difficulty < 8) {
     gym.completed = true;
   }
 });
-console.log (game.gyms)
-
-
-
+// console.log(game.gyms);
 
 /*
 Exercise 16
@@ -255,4 +255,4 @@ Exercise 16
 Solve Exercise 16 here:
 */
 
-//console.log(game)
+console.log(game);
